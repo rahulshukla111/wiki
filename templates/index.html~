@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="utf-8">
     <title>Wiki</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/font-awesome.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/jquery.meow.css') }}">
@@ -17,7 +19,10 @@
       body {
         padding-top: 60px;
         padding-bottom: 40px;
-      }
+	background: url("/static/images/bg.png");
+	overflow-x: hidden;
+}      
+}
       .sidebar-nav {
         padding: 9px 0;
       }
@@ -46,11 +51,6 @@
               <ul class="nav pull-right">
               <form class="navbar-search">
   	      <input type="text" class="search-query" placeholder="Search">
-		{% if not session.logged_in %}
-    		<a href="{{ url_for('login') }}">log in</a>
-  		{% else %}
-    		<a href="{{ url_for('logout') }}">log out</a>
-  		{% endif %}
 	      </form>
 		<p class="navbar-text pull-right">
 		{% if not session.logged_in %}
@@ -103,7 +103,7 @@
 	</div>
 	<div class="span4">
 	<ul class="nav nav-pills pull-right">
-  	<li><a href="#">View Source </a></li>
+  	<li><a onclick="window.location=&quot;view-source:&quot; + window.location.href">View Source</a></li>
     	<li><a href="#">History</a></li>
 	</ul>
 	</div>

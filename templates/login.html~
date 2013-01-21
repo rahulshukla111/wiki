@@ -62,24 +62,26 @@
 	<div id="login" class="accounts-form">
 	<h3>Log into your account</h3>
 	<hr class="small">
-	<div Class="row-fluid">
 	<div class="connect-buttons">
+	{% if error %}<div class="alert alert-error">
+  	<button type="button" class="close" data-dismiss="alert">&times;</button>
+  	<strong>Error !!</strong> {{ error }}
+	</div>{% endif %}
        <form class="connect-button" name="login" method="post" action="#" id="twitter-connect-form">
        <a href="#" class="btn" id="twitter_button"><span>Log in with <strong>LinkedIn</strong></span></a>
        </form>
        <form class="connect-button" name="login" method="post" action="#" id="facebook-connect-form">
        <a href="#" class="btn" id="facebook_button"><span>Log in with <strong>Facebook</strong></span></a>
        </form>
-  	 </div>
 	</div>
 	</p>
 	<hr>
 	<form id="auth-form" action="{{ url_for('login') }}" method=post >
 	<div class="input">
-	<input id="id_username" type="text" name="username" maxlength="75" placeholder="Your email">
+	<input id="id_username" type="text" name="username" maxlength="75" placeholder="username">
 	</div>
 	<div class="input">
-	<input id="id_password" type="password" name="password" maxlength="75" placeholder="Your password">	
+	<input id="id_password" type="password" name="password" maxlength="75" placeholder="password">	
         </div>
 	<div class="actions clearfix">
     	<input type="submit" value="Log In" class="btn btn-green">

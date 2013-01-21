@@ -18,8 +18,8 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 DATABASE = '/tmp/flaskr.db'
 DEBUG = True
 SECRET_KEY = 'development key'
-USERNAME = 'admin'
-PASSWORD = 'default'
+USERNAME = 'rahul'
+PASSWORD = '123'
 
 # create our little application :)
 app = Flask(__name__)
@@ -38,8 +38,7 @@ def init_db():
 
 def get_db():
     """Opens a new database connection if there is none yet for the
-current application context.
-"""
+current application context."""
     top = _app_ctx_stack.top
     if not hasattr(top, 'sqlite_db'):
         top.sqlite_db = sqlite3.connect(app.config['DATABASE'])
@@ -73,8 +72,13 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            return render_template('index.html')
+            return redirect(url_for('index'))
     return render_template('login.html', error=error)
+
+@app.route('/Wiki')
+def index():
+    return render_template('index.html')
+
 
 
 @app.route('/logout')

@@ -4411,12 +4411,13 @@ border-color: #56ad14;
 .navbar .brand {
   display: block;
   float: left;
-  padding: 10px 20px 10px;
+  padding: 2px 20px 2px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
   color: #777777;
   text-shadow: 0 1px 0 #ffffff;
+  height: 36px;
 }
 
 .navbar .brand:hover {
